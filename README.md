@@ -36,16 +36,18 @@ prompt_template='Answer this question about security articles: {{question}}';
 - Which sources published the most articles?
 - What are the key articles about Iran?
 - Is there an increase in cyber articles?
-
 ## API Endpoints
-GET  /api/stats/total
-GET  /api/stats/by-source
-GET  /api/stats/by-category
-GET  /api/stats/by-language
-GET  /api/stats/by-date
-GET  /api/stats/wordcloud
-GET  /api/articles
-POST /api/chat
+
+| Method | Endpoint |
+|--------|----------|
+| GET | /api/stats/total |
+| GET | /api/stats/by-source |
+| GET | /api/stats/by-category |
+| GET | /api/stats/by-language |
+| GET | /api/stats/by-date |
+| GET | /api/stats/wordcloud |
+| GET | /api/articles |
+| POST | /api/chat |
 
 ## מבנה הפרויקט
 articles-analyzer/
