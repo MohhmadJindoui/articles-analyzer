@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Analyzer Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🔍 Articles Analyzer Dashboard</h1>
+    <p>מערכת ניתוח מאמרי קוד פתוח — ביטחון, סייבר, גיאופוליטיקה</p>
+</header>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+    <div class="stat-card">
+        <div class="number" id="total-count">-</div>
+        <div class="label">סך מאמרים</div>
+    </div>
+    <div class="stat-card">
+        <div class="number" id="sources-count">-</div>
+        <div class="label">מקורות שונים</div>
+    </div>
+    <div class="stat-card">
+        <div class="number" id="categories-count">-</div>
+        <div class="label">קטגוריות</div>
+    </div>
+    <div class="stat-card">
+        <div class="number" id="languages-count">-</div>
+        <div class="label">שפות</div>
+    </div>
+</div>
+
+<!-- Charts -->
+<div class="charts-grid">
+
+    <div class="chart-card">
+        <h3>📰 מאמרים לפי מקור</h3>
+        <canvas id="sourceChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>🏷️ התפלגות לפי קטגוריה</h3>
+        <canvas id="categoryChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>🌍 מאמרים לפי שפה</h3>
+        <canvas id="languageChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>📅 מגמות איסוף לאורך זמן</h3>
+        <canvas id="dateChart"></canvas>
+    </div>
+
+    <div class="chart-card full-width">
+        <h3>☁️ ענן תגיות — מילות מפתח נפוצות</h3>
+        <div id="wordcloud-container">
+            <div class="loading">טוען ענן תגיות...</div>
+        </div>
+    </div>
+
+    <div class="chart-card full-width">
+        <h3>📋 מאמרים אחרונים</h3>
+        <table class="articles-table">
+            <thead>
+                <tr>
+                    <th>כותרת</th>
+                    <th>מקור</th>
+                    <th>קטגוריה</th>
+                    <th>שפה</th>
+                    <th>תאריך</th>
+                </tr>
+            </thead>
+            <tbody id="articles-tbody">
+                <tr><td colspan="5" class="loading">טוען מאמרים...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- MindsDB Chat -->
+<div class="chat-section">
+    <h3>🤖 שאל את ה-AI על המאמרים</h3>
+    <div class="chat-box">
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-message bot">
+                שלום! אני ה-AI Agent. שאל אותי שאלות על אוסף המאמרים.
+            </div>
+        </div>
+        <div class="chat-input-row">
+            <input
+                type="text"
+                id="chat-input"
+                placeholder="לדוגמה: כמה מאמרים נאספו בשבוע האחרון?"
+            />
+            <button id="send-btn">שלח</button>
+        </div>
+    </div>
+</div>
+
+<script src="charts.js"></script>
+<script src="chat.js"></script>
+
+</body>
+</html>

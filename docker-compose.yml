@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: articles-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: articles_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: articles-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://admin:password123@postgres:5432/articles_db
+    depends_on:
+      - postgres
+    volumes:
+      - ./data-loader:/data
+      - ./backend:/app
+
+  mindsdb:
+    image: mindsdb/mindsdb
+    container_name: articles-mindsdb
+    ports:
+      - "47334:47334"
+      - "47335:47335"
+    volumes:
+      - mindsdb_data:/root/mdb_storage
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  mindsdb_data:
