@@ -48,17 +48,17 @@ prompt_template='Answer this question about security articles: {{question}}';
 | GET | /api/stats/wordcloud |
 | GET | /api/articles |
 | POST | /api/chat |
-
 ## מבנה הפרויקט
-articles-analyzer/
-├── docker-compose.yml
-├── backend/main.py
-├── data-loader/loader.py
-└── frontend/
-    ├── index.html
-    ├── style.css
-    ├── charts.js
-    └── chat.js
+
+| קובץ | תיאור |
+|------|-------|
+| docker-compose.yml | הגדרות Docker |
+| backend/main.py | FastAPI - כל ה-endpoints |
+| data-loader/loader.py | טעינת CSV ל-PostgreSQL |
+| frontend/index.html | מבנה ה-Dashboard |
+| frontend/style.css | עיצוב |
+| frontend/charts.js | גרפים וסטטיסטיקות |
+| frontend/chat.js | ממשק AI Chat |
 
 ## פרטי הגשה
 קורס: ארכיטקטורת מערכות תוכנה
