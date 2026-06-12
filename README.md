@@ -60,6 +60,15 @@ prompt_template='Answer this question about security articles: {{question}}';
 | frontend/charts.js | גרפים וסטטיסטיקות |
 | frontend/chat.js | ממשק AI Chat |
 
+
+## 🎥 הקלטת Dashboard
+[לחץ כאן לצפייה בסרטון](https://drive.google.com/file/d/1UNU69rjZ0GVjOdgN4_hRgdZo3mVPEOHX/view?usp=sharing)
+
+הסרטון מדגים:
+- ניתוחי ה-Dashboard (5 גרפים)
+- ענן התגיות
+- שאילתות AI Agent (MindsDB + Groq)
+
 ## פרטי הגשה
 קורס: ארכיטקטורת מערכות תוכנה
 מכללה: מכללת עמק יזרעאל
