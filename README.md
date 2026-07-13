@@ -1,45 +1,61 @@
 # Articles Analyzer
 
-מערכת לניתוח מאמרי קוד פתוח בתחומי ביטחון, סייבר וגיאופוליטיקה.
+## Overview
 
-## הרצה מהירה
-docker compose up --build
+Articles Analyzer is a full-stack web application developed as part of a Software Architecture course.
+
+The platform analyzes open-source articles related to cybersecurity, defense, and geopolitics. It provides interactive dashboards, statistical insights, and an AI-powered assistant for querying article data.
+
+---
+
+## Technologies
+
+- Python
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Docker
+- Docker Compose
+- HTML
+- CSS
+- JavaScript
+- MindsDB
+- Groq API (Llama 3.1)
+
+---
+
+## Main Features
+
+- Import articles into PostgreSQL
+- Interactive analytics dashboard
+- Article statistics by:
+  - Source
+  - Category
+  - Language
+  - Publication date
+- Word cloud generation
+- AI-powered question answering
+- RESTful API
+- Dockerized deployment
+
+---
 
 ## Dashboard
-פתח את frontend/index.html בדפדפן
 
-## ניתוחים ב-Dashboard
-1. מאמרים לפי מקור
-2. התפלגות לפי קטגוריה  
-3. מאמרים לפי שפה
-4. מגמות לאורך זמן
-5. ענן תגיות
+The dashboard provides:
 
-## הגדרת MindsDB
-פתח http://localhost:47334 והרץ בסדר:
+- Articles by source
+- Articles by category
+- Articles by language
+- Timeline analysis
+- Word cloud visualization
 
-שלב 1 - חיבור PostgreSQL:
-CREATE DATABASE articles_postgres WITH ENGINE = 'postgres',
-PARAMETERS = {"host":"articles-db","port":5432,
-"database":"articles_db","user":"admin","password":"password123"};
+---
 
-שלב 2 - Groq Engine:
-CREATE ML_ENGINE groq_engine FROM groq USING api_key = 'YOUR_GROQ_KEY';
-
-שלב 3 - AI Model:
-CREATE MODEL mindsdb.articles_model PREDICT answer
-USING engine='groq_engine', model_name='llama-3.1-8b-instant',
-prompt_template='Answer this question about security articles: {{question}}';
-
-## שאילתות לדוגמה
-- What are the main cyber threats?
-- Which sources published the most articles?
-- What are the key articles about Iran?
-- Is there an increase in cyber articles?
-## API Endpoints
+## REST API
 
 | Method | Endpoint |
-|--------|----------|
+|---------|----------|
 | GET | /api/stats/total |
 | GET | /api/stats/by-source |
 | GET | /api/stats/by-category |
@@ -48,28 +64,29 @@ prompt_template='Answer this question about security articles: {{question}}';
 | GET | /api/stats/wordcloud |
 | GET | /api/articles |
 | POST | /api/chat |
-## מבנה הפרויקט
 
-| קובץ | תיאור |
-|------|-------|
-| docker-compose.yml | הגדרות Docker |
-| backend/main.py | FastAPI - כל ה-endpoints |
-| data-loader/loader.py | טעינת CSV ל-PostgreSQL |
-| frontend/index.html | מבנה ה-Dashboard |
-| frontend/style.css | עיצוב |
-| frontend/charts.js | גרפים וסטטיסטיקות |
-| frontend/chat.js | ממשק AI Chat |
+---
 
+## Project Structure
 
-## 🎥 הקלטת Dashboard
-[לחץ כאן לצפייה בסרטון](https://drive.google.com/file/d/1UNU69rjZ0GVjOdgN4_hRgdZo3mVPEOHX/view?usp=sharing)
+---
 
-הסרטון מדגים:
-- ניתוחי ה-Dashboard (5 גרפים)
-- ענן התגיות
-- שאילתות AI Agent (MindsDB + Groq)
+## Demo
 
-## פרטי הגשה
-קורס: ארכיטקטורת מערכות תוכנה
-מכללה: מכללת עמק יזרעאל
-תרגיל: מספר 2
+Dashboard demonstration:
+
+https://drive.google.com/file/d/1UNU69rjZ0GVjOdgN4_hRgdZo3mVPEOHX/view
+
+---
+
+## Learning Objectives
+
+This project demonstrates practical experience with:
+
+- Backend development using FastAPI
+- Database design with PostgreSQL
+- REST API development
+- Docker containerization
+- Data visualization
+- AI integration using MindsDB and Groq
+- Full-stack web development
